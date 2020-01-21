@@ -1,6 +1,6 @@
-# Nodepop API
+# Zombie Jumpig
 
-A simple arcade game for the [Pokitto](https://pokitto.com/) console written in Java.
+A simple arcade game for the [Pokitto](https://pokitto.com/) console written in Java. You can also see [the game in Itch.io](https://manuelsagra.itch.io/zombie-jumpig).
 
 ## Compilation
 
