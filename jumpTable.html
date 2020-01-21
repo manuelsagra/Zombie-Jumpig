@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Jump table calculation</title>
+<script>
+var STEPS = 60;
+var MAX_HEIGHT = 64;
+var SIZE = 4;
+
+var V = 21;
+var G = 38;
+var A = 1.1;
+</script>
+<style>
+body {
+	background: #000;
+}
+canvas {
+	background: #fff;
+	 transform: scaleY(-1);
+}
+div {
+	background: #eee;
+	margin: 20px;
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="arr"></div>
+<script>
+var res = [];
+var c = document.getElementById("canvas");
+c.width = STEPS * SIZE * 2;
+c.height = MAX_HEIGHT * SIZE;
+
+var ctx = this.canvas.getContext('2d');
+ctx.fillStyle = '#f00';
+
+var y = 0;
+for (var i = 0; i < STEPS; i++) {
+	y = (i * Math.tan(A)) - ((G * i * i) / (2 * V * V * (Math.cos(A) ^ 2)));
+	ry = Math.round(y);
+	res.push(ry);
+
+	var fx = i * SIZE * 2;
+	var fy = ry * SIZE;
+	console.log(fx, fy);
+	ctx.fillRect(fx, fy, SIZE * 2, SIZE);
+}
+
+var html = "int[] JUMP_TABLE = {";
+res.forEach(value => html += value + ", ");
+html = html.substring(0, html.length - 2);
+html += "};";
+document.getElementById("arr").innerHTML = html;
+</script>
+</body>
+</html>

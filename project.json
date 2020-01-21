@@ -1,0 +1,546 @@
+{
+	"metadata": {},
+	"lastBuffer": "Main.java",
+	"files": {
+		"Dog.json": {},
+		"Hello Java.bin": {},
+		"Hello Java.elf": {},
+		"Main.java": {},
+		"Pattern.png": {},
+		"dog.png": {},
+		"dump.bin": {},
+		"firmware.bin": {},
+		"project.json": {}
+	},
+	"javaFlags": {
+		"mainClass": "Main"
+	},
+	"libs": {
+		"Pokitto": [
+			"${appPath}/javacompiler/pokitto/libs/startup.cpp",
+			"${appPath}/javacompiler/pokitto/libs/SystemInit.s"
+		]
+	},
+	"SFlags": {
+		"Pokitto": [
+			"-I${appPath}/javacompiler/pokitto/includes",
+			"-I${projectPath}",
+			"-mcpu=cortex-m0plus",
+			"-mthumb"
+		]
+	},
+	"CPPFlags": {
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"RELEASE": [
+			"-flto",
+			"-O3"
+		],
+		"Pokitto": [
+			"-I${appPath}/javacompiler/pokitto/includes",
+			"-I${projectPath}",
+			"-DPOKITTO",
+			"-fexceptions",
+			"-fno-rtti",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wno-psabi"
+		],
+		"Desktop": [
+			"-I${appPath}/javacompiler/desktop/includes",
+			"-I${projectPath}",
+			"-DDESKTOP",
+			"-fno-rtti",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-exceptions",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks"
+		],
+		"ALL": [
+			"-std=c++14"
+		]
+	},
+	"GDBFlags": {
+		"Pokitto": [
+			"${projectPath}/${projectName}.elf"
+		]
+	},
+	"emuFlags": {
+		"Pokitto": [
+			"${projectPath}/${projectName}.bin"
+		]
+	},
+	"ELF2BINFlags": {
+		"Pokitto": [
+			"-O",
+			"binary",
+			"${projectPath}/${projectName}.elf",
+			"${projectPath}/${projectName}.bin"
+		]
+	},
+	"LDFlags": {
+		"RELEASE": [
+			"-O3"
+		],
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"Pokitto": [
+			"-Wl,--gc-sections",
+			"-Wl,-n",
+			"--specs=nano.specs",
+			"-Wl,--wrap,_sbrk",
+			"-Wl,--wrap,exit",
+			"-Wl,--wrap,malloc",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wl,--undefined=g_pfnVectors",
+			"-Wl,--undefined=boot",
+			"-T",
+			"${appPath}/javacompiler/pokitto/link.ld",
+			"--output",
+			"${projectPath}/${projectName}.elf",
+			"$objectFiles",
+			"-Wl,--start-group",
+			"-lstdc++",
+			"-lsupc++",
+			"-lm",
+			"-lc",
+			"-lgcc",
+			"-lnosys",
+			"-Wl,--end-group"
+		]
+	},
+	"target": "Pokitto",
+	"pipelines": {
+		"Pokitto": [
+			"compile-java",
+			"compile-cpp",
+			"compile-ld",
+			"compile-bin",
+			"make-img"
+		],
+		"Desktop": [
+			"compile-java",
+			"compile-cpp",
+			"compile-ld",
+			"compile-bin"
+		]
+	},
+	"meta": {
+		"": {},
+		"\\Pattern.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\Main.java": {
+			"sdcard": false
+		},
+		"\\Dog.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\dog.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\project.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites": {
+			"sdcard": false
+		},
+		"\\sprites\\Hero.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Hero.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Hero.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\WallJumping.elf": {
+			"sdcard": false
+		},
+		"\\WallJumping.bin": {
+			"sdcard": false
+		},
+		"\\WallJumping.bin.1.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\Nuevo documento de texto.txt": {
+			"sdcard": false
+		},
+		"\\jumpTable.html": {
+			"sdcard": false
+		},
+		"\\Utils.java": {
+			"sdcard": false
+		},
+		"\\sprites\\Bat.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Bat.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Bat.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Cof.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Coffee.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Coffee.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Coffee.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\coffemini.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\MiniCoffee.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\buildings.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Buildings.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Cloud.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Cloud.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\Nueva carpeta": {
+			"sdcard": false
+		},
+		"\\entities": {
+			"sdcard": false
+		},
+		"\\entities\\Entity.java": {
+			"sdcard": false
+		},
+		"\\sprites\\Buildings.aseprite": {
+			"sdcard": false
+		},
+		"\\entities\\PlayerEntity.java": {
+			"sdcard": false
+		},
+		"\\sprites\\Coin.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Coin.json": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Coin.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Pig.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Pig.json": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Pig.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Wall.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\RightWall.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\LeftWall.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\images": {
+			"sdcard": false
+		},
+		"\\images\\Cloud.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\images\\LeftWall.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\images\\RightWall.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\images\\MiniCoffee.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\images\\Buildings.aseprite": {
+			"sdcard": false
+		},
+		"\\images\\Cloud.aseprite": {
+			"sdcard": false
+		},
+		"\\images\\Buildings.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\WallJumping.bin.2.gif": {
+			"sdcard": false
+		},
+		"\\.git": {
+			"sdcard": false
+		},
+		"\\zombie-jumpig.elf": {
+			"sdcard": false
+		},
+		"\\zombie-jumpig.bin": {
+			"sdcard": false
+		},
+		"\\images\\Logo.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\zombie-jumpig.bin.1.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Dust.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Dust.json": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Dust.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Zombie.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Zombie.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Zombie.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\zombie-jumpig.bin.2.gif": {
+			"sdcard": false
+		},
+		"\\zombie-jumpig.bin.3.gif": {
+			"sdcard": false
+		},
+		"\\sprites\\Points100.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Points100.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Points200.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Points400.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Points800.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Points800.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Points1000.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Points1000.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Points100.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Points1000.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Points800.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Points300.aseprite": {
+			"sdcard": false
+		},
+		"\\sprites\\Points300.json": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Points300.png": {
+			"implements": "",
+			"sdcard": false
+		},
+		"\\sprites\\Points200.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Points400.json": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Points200.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sprites\\Points400.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\HiScore.java": {
+			"sdcard": false
+		},
+		"\\sounds": {
+			"sdcard": false
+		},
+		"\\sounds\\CoinSound.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\GroinSound.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\GrowlSound.wav": {
+			"sdcard": false
+		},
+		"\\Start.java": {
+			"sdcard": false
+		},
+		"\\Game.java": {
+			"sdcard": false
+		},
+		"\\MainGame.java": {
+			"sdcard": false
+		},
+		"\\MainState.java": {
+			"sdcard": false
+		},
+		"\\ZombieJumpig.java": {
+			"sdcard": false
+		},
+		"\\images\\LogoBig.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\zombie-jumpig.bin.2.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\images\\PressButtonBG.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\sounds\\TitleMusic.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\TitleMusic0.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\GameOverSound.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\JumpSound.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\187025__lloydevans09__jump1.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\BonusSouns.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\BonusSound.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\CoffeeSound.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\CoffeeSound0.wav": {
+			"sdcard": false
+		},
+		"\\sounds\\HitSound.wav": {
+			"sdcard": false
+		},
+		"\\zombie-jumpig.bin.3.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\title.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\zombie-jumpig.bin.4.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\zombie-jumpig.bin.5.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\zombie-jumpig.bin.6.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\zombie-jumpig.bin.7.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\zombie-jumpig.bin.8.png": {
+			"sdcard": false,
+			"implements": ""
+		},
+		"\\banner.png": {
+			"sdcard": false,
+			"implements": ""
+		}
+	}
+}
